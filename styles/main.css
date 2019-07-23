@@ -8,9 +8,14 @@ header {
     margin-right: 5%;
     margin-left: auto;
     margin-top: auto;
+    margin-bottom: 5px;
     width: 50px;
     height: 50px;
 
+}
+
+#add-item:hover, button:hover {
+    cursor: pointer;
 }
 
 h1 {
@@ -18,6 +23,7 @@ h1 {
     margin-left: 5%;
     margin-right: auto;
     margin-top: auto;
+    margin-bottom: 0px;
 }
 
 .bookmarkItemAll {
@@ -40,7 +46,7 @@ h1 {
 #edit-button, #delete-button {
     margin-top: 10px;
     font-size: 24px;
-    margin-right: 10px;
+    margin-right: 25px;
 }
 
 .bookmarkTitle {
@@ -67,6 +73,7 @@ h1 {
     margin-right: auto;
     padding-bottom: 10px;
     font-size: 24px;
+    margin-top: -15px;
 }
 
 .bookmarkItemB > .rated
