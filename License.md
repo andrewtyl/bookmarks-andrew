@@ -29,3 +29,5 @@ Size, shape, color, transparency, and other modifications may have been made to 
 Usage of these images are protected under Fair Use for Educational Purposes and are limited to both the original copyright and this software's copyright.
 
 normalize.css obtained from github.com/necolas/normalize.css and is protected under this same license.
+
+Rating CSS and HTML code elements modified from https://codepen.io/anon/pen/jgWbJQ

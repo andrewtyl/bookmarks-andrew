@@ -5,8 +5,15 @@ const bookmarks = (function() {
     
     function render() {
         $('body').html();
-        $('body').append(`<div class="bookmarkItem" id="${store.bookmarks[0].id}"><p>Bookmark Title: ${store.bookmarks[0].title}<break></break>Bookmark URL: ${store.bookmarks[0].url}<break></break></p></div>`);
-    }
+        for (let i = 0; store.bookmarks.length >= i; i++){
+        $('body').append(`<div class="bookmarkItem" id="${store.bookmarks[i].id}    "><h3 class="bookmarkTitle">${store.bookmarks[i].title}<h3>
+            <button type="button" id="edit-button" class="button">Edit</button>
+            <button type="button" id="delete-button" class="button">Delete</button>
+            <form>
+            <input type="checkbox" id="compact" name="compact" value="compact" checked>Compact View</form>
+            </div>`
+            );
+    }}
 
     return {
         render,
