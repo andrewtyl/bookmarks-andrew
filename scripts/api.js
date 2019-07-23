@@ -38,14 +38,14 @@ const api = (function() {
         })
     }
 
-    const editBookmark = (title, url, desc, rating) => {
+    const editBookmark = (id, title, url, desc, rating) => {
         let upload = {
             title: title,
             url: url,
             desc: desc,
             rating: rating,
         }
-        return fetch(baseURL, {
+        return fetch(`${baseURL}/${id}`, {
             method: 'POST',
             mode: 'cors',
             headers: {'Content-Type': 'applcation/json'},
@@ -53,7 +53,7 @@ const api = (function() {
         })
         .then(res => {
             if (!res.ok) {
-                let error = "There was an issue adding your bookmark. Please refresh the page and try again.";
+                let error = "There was an issue editing your bookmark. Please refresh the page and try again.";
                 store.errorMessage = error;
                 store.showError = true;
             }
@@ -63,10 +63,22 @@ const api = (function() {
         })
     }
 
-    }
-
-    const deleteBookmark = () => {
-
+    const deleteBookmark = (id, title, url, desc, rating) => {
+        return fetch(`${baseURL}/${id}`, {
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {'Content-Type': 'applcation/json'}
+        })
+        .then(res => {
+            if (!res.ok) {
+                let error = "There was an issue deleting your bookmark. Please refresh the page and try again.";
+                store.errorMessage = error;
+                store.showError = true;
+            }
+            else {
+                return res.json();
+            }
+        })
     }
 
     return {
