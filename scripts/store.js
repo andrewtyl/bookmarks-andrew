@@ -1,22 +1,6 @@
-"use strict";
+//Use to store all global variables, and global functions that don't deal with API
 
-const store = (function() {
-    let bookmarks = [];
-    let filter = "none";
-    let addNewItem = false;
-    let showError = false;
-    let errorMessage = null;
+//const store
 
-    let addBookmark = function(bookmark) {
-        this.bookmarks.push(bookmark);
-    }
-
-    return {
-        bookmarks,
-        filter,
-        addNewItem,
-        showError,
-        errorMessage,
-        addBookmark
-    };
-})();
+//let is there an error
+//let what was the error message
