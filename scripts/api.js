@@ -3,14 +3,33 @@ const api = function () {
 //Only api specific functions
 const baseURL = "https://thinkful-list-api.herokuapp.com/andrewtyl/bookmarks";
 
+function apiContact(input) {
+    let error = null;
+    return fetch(input)
+        .then(res => {
+            if (!res.ok) {
+                error = res.status;
+            }
+            else {return res.json()};
+        })
+        .then(res => {
+            if (error != null) {
+                store.errorMessage = res.message;
+                store.isError = true;
+                return Promise.reject(error);
+            }
+            else {return res;}
+        })
+} 
+
 //get
 const getServerBookmarks = function () {
-    return fetch(baseURL).json
+    apiContact(`${baseURL}`);
 };
 
 //post
 postBookmarkToServer = function (title, url, desc, rating) {
-    return fetch(baseURL, {
+    return apiContact(`${baseURL}`, {
         method: 'POST',
         headers: new Headers({
             'Content-Type' : 'application/json'}),
@@ -25,7 +44,7 @@ postBookmarkToServer = function (title, url, desc, rating) {
 
 //patch
 updateBookmarkOnServer = function (id, title, url, desc, rating) {
-    return fetch(`${baseURL}/${id}`, {
+    return apiContact(`${baseURL}/${id}`, {
         method: 'PATCH',
         headers: new Headers({
             'Content-Type' : 'application/json'}),
@@ -40,7 +59,7 @@ updateBookmarkOnServer = function (id, title, url, desc, rating) {
 
 //delete
 deleteBookmarkFromServer = function (id) {
-    return fetch(`${baseURL}/${id}`, {
+    return apiContact(`${baseURL}/${id}`, {
         method: 'DELETE',
         headers: new Headers({'Content-Type' : 'application/json'}),
         })

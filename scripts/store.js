@@ -2,30 +2,20 @@
 const store = function () {
 
 
-let localBookmarks = [
-        {
-            title: "abc", desc: "def", url: "ghi", rating: 5, compact: true
-        },
-        {
-            title: "zyx", desc: "wvu", url: "tsr", rating: 3, compact: false
-        }
-    ]
-
+let localBookmarks = [];
 isError = false;
 errorMessage = null;
+filterRating = 0;
 
-const renderDefaultPage = function() {
-    bookmarks = [];
-    api.getServerBookmarks;
-    //put all server bookmarks into Localbookmarks
-    //render html default page
+function newBookmark(title, url, desc, rating) {
+    api.postBookmarkToServer(title, url, desc, rating);
 }
 
 return {
     localBookmarks,
     isError,
     errorMessage,
-    renderDefaultPage
-    
+    filterRating,
+    newBookmark
 }
-}
+}();
